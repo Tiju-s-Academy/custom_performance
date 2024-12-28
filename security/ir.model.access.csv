@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_employee_performance_admin,Employee performance admin,model_employee_performance,group_model_admin,1,1,1,1
+access_employee_performance_user,Employee performance user,model_employee_performance,group_model_user,1,0,0,0

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_employee_performance_tree" model="ir.ui.view">
+        <field name="name">employee.performance.tree</field>
+        <field name="model">employee.performance</field>
+        <field name="arch" type="xml">
+            <tree string="Employee Performance">
+                <field name="employee_id"/>
+                <field name="job_position_id"/>
+                <field name="branch_id"/>
+                <!--                <field name="badge_ids"/>-->
+                <field name="department_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_employee_performance_form" model="ir.ui.view">
+        <field name="name">employee.performance.form</field>
+        <field name="model">employee.performance</field>
+        <field name="arch" type="xml">
+            <form string="Employee Performance">
+                <sheet>
+                    <div class="row justify-content-between position-relative w-100 m-0 mb-2">
+                        <div class="oe_title mw-75 ps-0 pe-2">
+                            <h1 class="d-flex flex-row align-items-center">
+                                <field name="employee_id" placeholder="Employee's Name" required="True"
+                                       style="font-size: min(4vw, 2.6rem);"/>
+                            </h1>
+                            <h2>
+                                <field name="job_position_id" placeholder="Job Position"/>
+                            </h2>
+                        </div>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="branch_id"/>
+                            <field name="department_id"/>
+                        </group>
+                        <group>
+                            <field name="job_position_id"/>
+                            <!--                            <field name="badge_ids" widget="many2many_tag"/>-->
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Received Badges" name="received_badges" invisible="not employee_id">
+                            <div class="mt-2">
+                                <field name="badge_ids" mode="kanban"/>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_employee_performance" model="ir.actions.act_window">
+        <field name="name">Employee Performance</field>
+        <field name="res_model">employee.performance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

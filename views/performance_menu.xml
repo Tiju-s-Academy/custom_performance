@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="performance_root" name="Performance"/>
+    <menuitem id="performance_menu" name="Employee Performance" parent="performance_root"
+              action="action_employee_performance"/>
+</odoo>
